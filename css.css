@@ -1,0 +1,192 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+    color: whitesmoke;
+    background-color: rgb(13, 152, 36);
+}
+
+img {
+    width: 60px;
+    background-color: whitesmoke;
+    border-radius: 80%;
+}
+
+nav {
+    display: flex;
+    /* Se ha cambiado de flex-end a space-between para alinear el logo y el botón */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(26, 24, 24);
+}
+
+/* Estilo para el nuevo logo en el header */
+.logo {
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: 15px;
+    /* Espacio para que no esté pegado al borde */
+    gap: 10px;
+    /* Espacio entre la imagen y el texto */
+}
+
+/* Estilos del enlace de navegación, ahora como un botón */
+#pizarras-anteriores {
+    background-color: rgb(3, 127, 235);
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#pizarras-anteriores:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.content {
+    width: 100%;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    height: auto;
+    background-color: rgb(7, 26, 167);
+}
+
+.right {
+    float: right;
+    width: 50%;
+    height: auto;
+    background-color: rgb(13, 152, 36);
+}
+
+.title {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+form label {
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+.button {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: rgb(3, 127, 235);
+    color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: rgb(13, 152, 36);
+}
+
+footer {
+    clear: both;
+    background-color: rgb(26, 24, 24);
+    padding: 10px;
+    text-align: center;
+    color: lightgrey;
+}
+
+/* Estilos para el nuevo elemento de tarjeta editable */
+.card {
+    background-color: whitesmoke;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-content {
+    min-height: 200px;
+    width: 100%;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    resize: vertical;
+    overflow: auto;
+    cursor: text;
+    color: black;
+    box-sizing: border-box;
+}
+
+.card-content:empty:before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    cursor: text;
+}
+
+.save-card-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(3, 127, 235);
+    color: whitesmoke;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.save-card-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: rgb(13, 152, 36);
+}
+
+/* Agrega estos estilos a tu archivo css.css */
+
+/* Nuevo estilo para el área de visualización */
+.card-content {
+    /* Mantenemos los estilos que ya tenías, como el min-height, padding, etc. */
+    cursor: default;
+    /* Cambiamos el cursor a la flecha estándar */
+    user-select: text;
+    /* Permite que el usuario pueda seleccionar el texto */
+}
+
+/* Es el mismo botón, pero es buena práctica tener el ID en mente */
+#copyCardButton {
+    margin-top: 15px;
+}

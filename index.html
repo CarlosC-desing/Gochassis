@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo.png" type="images/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizarra Digital</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="GoChassis">
+            <span>GoChassis</span>
+        </div>
+        <a id="pizarras-anteriores" href="pizarras-anteriores">Pizarras Anteriores</a>
+    </nav>
+
+    <main>
+        <div class="content">
+            <div class="left">
+                <div id="pizarra">
+                    <h1 class="title">Novedades Nuevas</h1>
+                    <form onsubmit="savePizarra(event)">
+                        <label for="grupo">Grupo:</label>
+                        <select id="grupo" name="grupo">
+                            <option value="">Selecciona un grupo</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                        <label for="Irwindale">Irwindale:</label>
+                        <textarea id="Irwindale" name="Irwindale" placeholder="Novedades"></textarea>
+                        <label for="Perris">Perris:</label>
+                        <textarea id="Perris" name="Perris" placeholder="Novedades"></textarea>
+                        <label for="Boyle">Boyle:</label>
+                        <textarea id="Boyle" name="Boyle" placeholder="Novedades"></textarea>
+                        <label for="Vernon">Vernon:</label>
+                        <textarea id="Vernon" name="Vernon" placeholder="Novedades"></textarea>
+                        <label for="Tulare">Tulare:</label>
+                        <textarea id="Tulare" name="Tulare" placeholder="Novedades"></textarea>
+                        <label for="Gualan">Gualan:</label>
+                        <textarea id="Gualan" name="Gualan" placeholder="Novedades"></textarea>
+                        <label for="Venezuela">Venezuela:</label>
+                        <textarea id="Venezuela" name="Venezuela" placeholder="Novedades"></textarea>
+                        <button class="button" type="submit">Guardar Pizarra</button>
+                    </form>
+                </div>
+            </div>
+            <div class="right">
+                <h1 class="title">Últimas Novedades</h1>
+                <div class="card">
+                    <div class="card-content" id="displayLastPizarra">
+                        Cargando la última novedad...
+                    </div>
+                    <button class="save-card-button" id="copyPizarraButton">Copiar Pizarra</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Hecho por Carlos I. Canelón D'Auria</p>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
