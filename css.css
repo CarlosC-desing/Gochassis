@@ -13,14 +13,12 @@ img {
 
 nav {
     display: flex;
-    /* Se ha cambiado de flex-end a space-between para alinear el logo y el botón */
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     background-color: rgb(26, 24, 24);
 }
 
-/* Estilo para el nuevo logo en el header */
 .logo {
     display: flex;
     align-items: center;
@@ -28,12 +26,9 @@ nav {
     font-weight: bold;
     font-size: 1.5em;
     margin-left: 15px;
-    /* Espacio para que no esté pegado al borde */
     gap: 10px;
-    /* Espacio entre la imagen y el texto */
 }
 
-/* Estilos del enlace de navegación, ahora como un botón */
 #pizarras-anteriores {
     background-color: rgb(3, 127, 235);
     color: whitesmoke;
@@ -126,7 +121,6 @@ footer {
     color: lightgrey;
 }
 
-/* Estilos para el nuevo elemento de tarjeta editable */
 .card {
     background-color: whitesmoke;
     width: 80%;
@@ -175,18 +169,11 @@ footer {
     background-color: rgb(3, 127, 235);
 }
 
-/* Agrega estos estilos a tu archivo css.css */
-
-/* Nuevo estilo para el área de visualización */
 .card-content {
-    /* Mantenemos los estilos que ya tenías, como el min-height, padding, etc. */
     cursor: default;
-    /* Cambiamos el cursor a la flecha estándar */
     user-select: text;
-    /* Permite que el usuario pueda seleccionar el texto */
 }
 
-/* Es el mismo botón, pero es buena práctica tener el ID en mente */
 #copyCardButton {
     margin-top: 15px;
 }
