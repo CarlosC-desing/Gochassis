@@ -1,6 +1,6 @@
 // Importa las funciones que necesitas de los SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, where, deleteDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 // Tu configuración de la app web de Firebase
 const firebaseConfig = {
@@ -18,6 +18,26 @@ const db = getFirestore(app);
 
 let lastPizarraContent = "";
 
+// Función para eliminar las pizarras que tengan más de 14 días
+async function deleteOldPizarras() {
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - 14);
+
+    const q = query(collection(db, "novedades"), where("timestamp", "<", cutoffDate));
+    const querySnapshot = await getDocs(q);
+
+    let deletedCount = 0;
+    querySnapshot.forEach(async (doc) => {
+        await deleteDoc(doc.ref);
+        deletedCount++;
+    });
+
+    if (deletedCount > 0) {
+        console.log(`Se eliminaron ${deletedCount} pizarras antiguas.`);
+    }
+}
+
+// Función para guardar los datos del formulario en Firestore con validación
 function savePizarra(event) {
     event.preventDefault();
 
@@ -61,6 +81,7 @@ function savePizarra(event) {
         });
 }
 
+// Función para obtener y mostrar la última pizarra guardada
 async function loadLastPizarra() {
     const displayElement = document.getElementById("displayLastPizarra");
     displayElement.innerHTML = "Cargando la última novedad...";
@@ -104,6 +125,7 @@ async function loadLastPizarra() {
     }
 }
 
+// Agregar un evento al botón de copiar
 document.getElementById('copyPizarraButton').addEventListener('click', () => {
     if (lastPizarraContent) {
         const tempDiv = document.createElement('div');
@@ -123,6 +145,9 @@ document.getElementById('copyPizarraButton').addEventListener('click', () => {
     }
 });
 
-window.onload = loadLastPizarra;
+window.onload = async () => {
+    await deleteOldPizarras();
+    loadLastPizarra();
+};
 
 window.savePizarra = savePizarra;

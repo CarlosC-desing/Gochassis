@@ -163,7 +163,7 @@ footer {
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(3, 127, 235);
+    background-color: rgb(13, 152, 36);
     color: whitesmoke;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -172,7 +172,7 @@ footer {
 .save-card-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background-color: rgb(13, 152, 36);
+    background-color: rgb(3, 127, 235);
 }
 
 /* Agrega estos estilos a tu archivo css.css */

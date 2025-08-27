@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo.png" type="images/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizarras Anteriores - GoChassis</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        .pizarra-card {
+            background-color: #2e3e50;
+            color: whitesmoke;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px;
+            margin-bottom: 5px;
+        }
+        .pizarra-card h2 {
+            text-align: center;
+            border-bottom: 2px solid #5a6b7c;
+            padding-bottom: 10px;
+        }
+        .pizarra-card p {
+            margin: 10px 0;
+        }
+        .pizarra-card strong {
+            color: #3b7feb;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="GoChassis">
+            <span>GoChassis</span>
+        </div>
+        <a id="pizarras-anteriores" href="index.html">Volver a la Pizarra</a>
+    </nav>
+    <main>
+        <h1 class="title">Historial de Pizarras</h1>
+        <div id="pizarras-container">
+            <p>Cargando el historial...</p>
+        </div>
+    </main>
+    <footer>
+        <p>Hecho por Carlos I. Canelón D'Auria</p>
+    </footer>
+    <script src="pizarras-anteriores.js" type="module"></script>
+</body>
+</html>
