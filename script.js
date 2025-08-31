@@ -13,9 +13,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-let lastPizarraContent = "";
-// Nueva variable para almacenar los datos de la última pizarra
-let lastPizarraData = null;
+// Ya no necesitamos esta variable global
+// let lastPizarraContent = "";
+// let lastPizarraData = null;
 
 async function deleteOldPizarras() {
     const cutoffDate = new Date();
@@ -78,6 +78,7 @@ function savePizarra(event) {
         });
 }
 
+// NUEVA VERSIÓN DE LA FUNCIÓN loadLastPizarra
 async function loadLastPizarra() {
     const displayElement = document.getElementById("displayLastPizarra");
     displayElement.innerHTML = "Cargando la última novedad...";
@@ -88,7 +89,6 @@ async function loadLastPizarra() {
 
         if (!querySnapshot.empty) {
             const lastPizarra = querySnapshot.docs[0].data();
-            lastPizarraData = lastPizarra; // Guardar los datos en la variable global
             
             const timestamp = lastPizarra.timestamp.toDate();
             const formattedDate = timestamp.toLocaleDateString('es-ES', {
@@ -99,7 +99,8 @@ async function loadLastPizarra() {
                 minute: '2-digit'
             });
 
-            lastPizarraContent = `
+            // Guardamos el contenido para la función de copiado
+            const lastPizarraContent = `
                 <h3>Grupo: ${lastPizarra.grupo}</h3>
                 <p><strong>Fecha:</strong> ${formattedDate}</p>
                 <hr>
@@ -114,8 +115,6 @@ async function loadLastPizarra() {
             displayElement.innerHTML = lastPizarraContent;
         } else {
             displayElement.innerHTML = "No hay pizarras para mostrar.";
-            lastPizarraContent = "";
-            lastPizarraData = null;
         }
     } catch (error) {
         console.error("Error al obtener la pizarra:", error);
@@ -123,45 +122,76 @@ async function loadLastPizarra() {
     }
 }
 
-// Nueva función para reutilizar la pizarra
-function reuseLastPizarra() {
-    if (lastPizarraData) {
-        const form = document.querySelector('form');
-        form.querySelector('#grupo').value = lastPizarraData.grupo;
-        form.querySelector('#Irwindale').value = lastPizarraData.irwindale;
-        form.querySelector('#Perris').value = lastPizarraData.perris;
-        form.querySelector('#Boyle').value = lastPizarraData.boyle;
-        form.querySelector('#Vernon').value = lastPizarraData.vernon;
-        form.querySelector('#Tulare').value = lastPizarraData.tulare;
-        form.querySelector('#Gualan').value = lastPizarraData.gualan;
-        form.querySelector('#Venezuela').value = lastPizarraData.venezuela;
-        
-        alert("¡Pizarra cargada en los campos de novedades!");
-    } else {
-        alert("No hay una pizarra anterior para cargar.");
+// NUEVA VERSIÓN DE LA FUNCIÓN reuseLastPizarra
+async function reuseLastPizarra() {
+    try {
+        // Pedimos los datos directamente cuando se hace clic
+        const q = query(collection(db, "novedades"), orderBy("timestamp", "desc"), limit(1));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+            const lastPizarra = querySnapshot.docs[0].data();
+            
+            const form = document.querySelector('form');
+            form.querySelector('#grupo').value = lastPizarra.grupo;
+            form.querySelector('#Irwindale').value = lastPizarra.irwindale;
+            form.querySelector('#Perris').value = lastPizarra.perris;
+            form.querySelector('#Boyle').value = lastPizarra.boyle;
+            form.querySelector('#Vernon').value = lastPizarra.vernon;
+            form.querySelector('#Tulare').value = lastPizarra.tulare;
+            form.querySelector('#Gualan').value = lastPizarra.gualan;
+            form.querySelector('#Venezuela').value = lastPizarra.venezuela;
+            
+            alert("¡Pizarra cargada en los campos de novedades!");
+        } else {
+            alert("No hay una pizarra anterior para cargar.");
+        }
+    } catch (error) {
+        console.error("Error al cargar la pizarra para reutilizar:", error);
+        alert("Ocurrió un error al cargar la pizarra. Por favor, revisa la consola.");
     }
 }
 
-document.getElementById('copyPizarraButton').addEventListener('click', () => {
-    if (lastPizarraContent) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = lastPizarraContent;
-        const textToCopy = tempDiv.innerText || tempDiv.textContent;
-
-        navigator.clipboard.writeText(textToCopy.trim())
-            .then(() => {
-                alert("Pizarra copiada al portapapeles!");
-            })
-            .catch(err => {
-                console.error('Error al copiar el texto: ', err);
-                alert("Error al copiar. Por favor, intenta de nuevo.");
+document.getElementById('copyPizarraButton').addEventListener('click', async () => {
+    try {
+        const q = query(collection(db, "novedades"), orderBy("timestamp", "desc"), limit(1));
+        const querySnapshot = await getDocs(q);
+        
+        if (!querySnapshot.empty) {
+            const lastPizarra = querySnapshot.docs[0].data();
+            
+            const timestamp = lastPizarra.timestamp.toDate();
+            const formattedDate = timestamp.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
             });
-    } else {
-        alert("No hay contenido para copiar.");
+
+            const textToCopy = `
+Grupo: ${lastPizarra.grupo}
+Fecha: ${formattedDate}
+Irwindale: ${lastPizarra.irwindale}
+Perris: ${lastPizarra.perris}
+Boyle: ${lastPizarra.boyle}
+Vernon: ${lastPizarra.vernon}
+Tulare: ${lastPizarra.tulare}
+Gualan: ${lastPizarra.gualan}
+Venezuela: ${lastPizarra.venezuela}
+            `.trim();
+
+            await navigator.clipboard.writeText(textToCopy);
+            alert("Pizarra copiada al portapapeles!");
+        } else {
+            alert("No hay contenido para copiar.");
+        }
+    } catch (err) {
+        console.error('Error al copiar el texto: ', err);
+        alert("Error al copiar. Por favor, intenta de nuevo.");
     }
 });
 
-// Event listener para el nuevo botón
 document.getElementById('reusePizarraButton').addEventListener('click', reuseLastPizarra);
 
 window.onload = async () => {
