@@ -14,6 +14,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 let lastPizarraContent = "";
+// Nueva variable para almacenar los datos de la última pizarra
+let lastPizarraData = null;
 
 async function deleteOldPizarras() {
     const cutoffDate = new Date();
@@ -86,6 +88,7 @@ async function loadLastPizarra() {
 
         if (!querySnapshot.empty) {
             const lastPizarra = querySnapshot.docs[0].data();
+            lastPizarraData = lastPizarra; // Guardar los datos en la variable global
             
             const timestamp = lastPizarra.timestamp.toDate();
             const formattedDate = timestamp.toLocaleDateString('es-ES', {
@@ -112,10 +115,30 @@ async function loadLastPizarra() {
         } else {
             displayElement.innerHTML = "No hay pizarras para mostrar.";
             lastPizarraContent = "";
+            lastPizarraData = null;
         }
     } catch (error) {
         console.error("Error al obtener la pizarra:", error);
         displayElement.innerHTML = "Error al cargar la última pizarra.";
+    }
+}
+
+// Nueva función para reutilizar la pizarra
+function reuseLastPizarra() {
+    if (lastPizarraData) {
+        const form = document.querySelector('form');
+        form.querySelector('#grupo').value = lastPizarraData.grupo;
+        form.querySelector('#Irwindale').value = lastPizarraData.irwindale;
+        form.querySelector('#Perris').value = lastPizarraData.perris;
+        form.querySelector('#Boyle').value = lastPizarraData.boyle;
+        form.querySelector('#Vernon').value = lastPizarraData.vernon;
+        form.querySelector('#Tulare').value = lastPizarraData.tulare;
+        form.querySelector('#Gualan').value = lastPizarraData.gualan;
+        form.querySelector('#Venezuela').value = lastPizarraData.venezuela;
+        
+        alert("¡Pizarra cargada en los campos de novedades!");
+    } else {
+        alert("No hay una pizarra anterior para cargar.");
     }
 }
 
@@ -137,6 +160,9 @@ document.getElementById('copyPizarraButton').addEventListener('click', () => {
         alert("No hay contenido para copiar.");
     }
 });
+
+// Event listener para el nuevo botón
+document.getElementById('reusePizarraButton').addEventListener('click', reuseLastPizarra);
 
 window.onload = async () => {
     await deleteOldPizarras();
