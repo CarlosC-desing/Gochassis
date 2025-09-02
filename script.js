@@ -13,10 +13,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Ya no necesitamos esta variable global
-// let lastPizarraContent = "";
-// let lastPizarraData = null;
-
 async function deleteOldPizarras() {
     const cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - 14);
@@ -78,7 +74,6 @@ function savePizarra(event) {
         });
 }
 
-// NUEVA VERSIÓN DE LA FUNCIÓN loadLastPizarra
 async function loadLastPizarra() {
     const displayElement = document.getElementById("displayLastPizarra");
     displayElement.innerHTML = "Cargando la última novedad...";
@@ -99,7 +94,6 @@ async function loadLastPizarra() {
                 minute: '2-digit'
             });
 
-            // Guardamos el contenido para la función de copiado
             const lastPizarraContent = `
                 <h3>Grupo: ${lastPizarra.grupo}</h3>
                 <p><strong>Fecha:</strong> ${formattedDate}</p>
@@ -122,10 +116,8 @@ async function loadLastPizarra() {
     }
 }
 
-// NUEVA VERSIÓN DE LA FUNCIÓN reuseLastPizarra
 async function reuseLastPizarra() {
     try {
-        // Pedimos los datos directamente cuando se hace clic
         const q = query(collection(db, "novedades"), orderBy("timestamp", "desc"), limit(1));
         const querySnapshot = await getDocs(q);
 
@@ -169,16 +161,25 @@ document.getElementById('copyPizarraButton').addEventListener('click', async () 
                 minute: '2-digit'
             });
 
+            // Se ha modificado esta sección para usar tu formato deseado
             const textToCopy = `
-Grupo: ${lastPizarra.grupo}
-Fecha: ${formattedDate}
-Irwindale: ${lastPizarra.irwindale}
-Perris: ${lastPizarra.perris}
-Boyle: ${lastPizarra.boyle}
-Vernon: ${lastPizarra.vernon}
-Tulare: ${lastPizarra.tulare}
-Gualan: ${lastPizarra.gualan}
-Venezuela: ${lastPizarra.venezuela}
+*Grupo*: ${lastPizarra.grupo}
+
+*Fecha*: ${formattedDate}
+
+*Irwindale*: ${lastPizarra.irwindale}
+
+*Perris*: ${lastPizarra.perris}
+
+*Boyle*: ${lastPizarra.boyle}
+
+*Vernon*: ${lastPizarra.vernon}
+
+*Tulare*: ${lastPizarra.tulare}
+
+*Gualan*: ${lastPizarra.gualan}
+
+*Venezuela*: ${lastPizarra.venezuela}
             `.trim();
 
             await navigator.clipboard.writeText(textToCopy);
