@@ -13,7 +13,6 @@ img {
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px;
     background-color: rgb(26, 24, 24);
@@ -27,6 +26,22 @@ nav {
     font-size: 1.5em;
     margin-left: 15px;
     gap: 10px;
+}
+
+#soliom {
+    background-color: rgb(3, 127, 235);
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-left: auto;
+}
+
+#soliom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 #pizarras-anteriores {
@@ -177,3 +192,46 @@ footer {
 #copyCardButton {
     margin-top: 15px;
 }
+
+#reusePizarraButton svg {
+    /* Le da un tamaño visible. */
+    width: 16px;
+    height: 13px;
+    /* Asegura que el trazo del icono sea visible sobre el fondo del botón. */
+    stroke: whitesmoke;
+}
+
+table {
+    color: black;
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.title-table {
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+

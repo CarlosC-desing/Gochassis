@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="logo.png" type="images/png">
@@ -7,13 +8,15 @@
     <title>Pizarra Digital</title>
     <link rel="stylesheet" href="css.css">
 </head>
+
 <body>
     <nav>
         <div class="logo">
             <img src="logo.png" alt="GoChassis">
             <span>GoChassis</span>
         </div>
-        <a id="pizarras-anteriores" href="pizarras-anteriores">Pizarras Anteriores</a>
+        <a id="soliom" href="soliom.html">Inspección Soliom</a>
+        <a id="pizarras-anteriores" href="pizarras-anteriores.html">Pizarras Anteriores</a>
     </nav>
 
     <main>
@@ -56,7 +59,12 @@
                     </div>
                     <div class="card-buttons">
                         <button class="save-card-button" id="copyPizarraButton">Copiar Pizarra</button>
-                        <button class="save-card-button" id="reusePizarraButton">&#x1F501;</button>
+                        <button class="save-card-button" id="reusePizarraButton"><svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -68,4 +76,5 @@
 
     <script src="script.js" type="module"></script>
 </body>
+
 </html>
