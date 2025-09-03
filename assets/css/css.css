@@ -238,4 +238,25 @@ label {
 input[type="checkbox"] {
     margin-left: 10px;
 }
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Agrega un poco de espacio entre los botones */
+    margin-left: auto; /* Empuja todo el grupo de botones a la derecha */
+}
 
+/* Esta clase aplica el estilo común a todos los botones */
+.nav-btn {
+    background-color: rgb(3, 127, 235);
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto hover común para todos los botones */
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
