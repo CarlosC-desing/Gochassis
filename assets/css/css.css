@@ -215,6 +215,7 @@ table {
 
 th,
 td {
+    background-color: whitesmoke;
     border: 1px solid #000;
     padding: 10px;
 }
