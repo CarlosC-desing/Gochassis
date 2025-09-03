@@ -215,13 +215,16 @@ table {
 
 th,
 td {
-    background-color: whitesmoke;
     border: 1px solid #000;
     padding: 10px;
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: whitesmoke;
+}
+
+td {
+    background-color: whitesmoke;
 }
 
 tr:nth-child(even) {
