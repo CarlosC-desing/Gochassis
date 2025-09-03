@@ -28,31 +28,27 @@ nav {
     gap: 10px;
 }
 
-#soliom {
+/* Contenedor de los botones */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto; /* Esto empuja los botones a la derecha */
+}
+
+/* Estilo unificado para todos los botones */
+.nav-btn {
     background-color: rgb(3, 127, 235);
     color: whitesmoke;
     border-radius: 10px;
-    padding: 10px 20px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-left: auto;
-}
-
-#soliom:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-#pizarras-anteriores {
-    background-color: rgb(3, 127, 235);
-    color: whitesmoke;
-    border-radius: 10px;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Ajuste para que sea un poco más pequeño */
+    font-size: 0.9em; /* Fuente más pequeña */
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-#pizarras-anteriores:hover {
+/* Efecto hover común para todos los botones */
+.nav-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -236,31 +232,9 @@ label {
 input[type="checkbox"] {
     margin-left: 10px;
 }
-.nav-buttons {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Agrega un poco de espacio entre los botones */
-    margin-left: auto; /* Empuja todo el grupo de botones a la derecha */
-}
-
-/* Esta clase aplica el estilo común a todos los botones */
-.nav-btn {
-    background-color: rgb(3, 127, 235);
-    color: whitesmoke;
-    border-radius: 10px;
-    padding: 10px 20px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* Efecto hover común para todos los botones */
-.nav-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
 
 .reporte-card {
-        background-color: #2e3e50;
+    background-color: #2e3e50;
     width: 80%;
     border-radius: 15px;
     text-align: center;
