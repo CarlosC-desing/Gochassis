@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="assets/img/logo.png" type="images/png">
@@ -8,24 +7,24 @@
     <title>Inspección Soliom</title>
     <link rel="stylesheet" href="assets/css/css.css">
 </head>
-
 <body>
     <nav>
         <div class="logo">
             <img src="assets/img/logo.png" alt="GoChassis">
             <span>GoChassis</span>
         </div>
-        <a id="soliom" href="soliom.html">Inspección Soliom</a>
-        <a href="soliom-reports.html">Reportes Anteriores</a>
-        <a id="pizarras-anteriores" href="pizarras-anteriores.html">Pizarras Anteriores</a>
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Inicio</a>
+            <a id="soliom" href="soliom.html" class="nav-btn">Inspección Soliom</a>
+            <a href="soliom-reports.html" class="nav-btn">Reportes Anteriores</a>
+            <a id="pizarras-anteriores" href="pizarras-anteriores.html" class="nav-btn">Pizarras Anteriores</a>
+        </div>
     </nav>
-
     <main>
         <div class="content">
             <div class="left">
                 <h1 class="title">Inspección Soliom</h1>
                 <p>Se recomienda hacer la inspección con el Iphone 2 para seguir el orden de las cámaras</p>
-
                 <form id="reporte-form" action="#">
                     <label for="nombre1">Asistente 1:</label>
                     <input type="text" id="nombre1" name="nombre1" required>
@@ -42,7 +41,6 @@
                         <option value="D">D</option>
                     </select>
                 </form>
-
                 <table>
                     <thead>
                         <tr>
@@ -216,7 +214,6 @@
                 </table>
                 <button type="button" id="generar-reporte">Generar reporte</button>
             </div>
-            
             <div class="right">
                 <h1 class="title">Reporte Generado</h1>
                 <div class="card">
@@ -228,11 +225,9 @@
             </div>
         </div>
     </main>
-
     <footer>
         <p>Hecho por Carlos I. Canelón D'Auria</p>
     </footer>
-
     <script src="assets/Javascripts/soliom.js" type="module"></script>
 </body>
 </html>
