@@ -13,6 +13,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Código añadido para hacer las celdas clicables
+document.addEventListener('DOMContentLoaded', function() {
+    const clickableCells = document.querySelectorAll('.clickable-cell');
+
+    clickableCells.forEach(cell => {
+        cell.addEventListener('click', function(event) {
+            // Evita que el evento se dispare si ya se hizo clic en un checkbox
+            if (event.target.type === 'checkbox') {
+                return;
+            }
+
+            // Busca el checkbox dentro de la celda clicada
+            const checkbox = this.querySelector('input[type="checkbox"]');
+
+            // Alterna el estado de marcado del checkbox
+            if (checkbox) {
+                checkbox.checked = !checkbox.checked;
+            }
+        });
+    });
+});
+
 document.getElementById('generar-reporte').addEventListener('click', async function() {
     const form = document.getElementById('reporte-form');
     const asistente1 = form.elements['nombre1'].value;
@@ -60,10 +82,10 @@ document.getElementById('generar-reporte').addEventListener('click', async funct
 
     const now = new Date();
     const fecha = `${now.getDate()}/${now.getMonth() + 1}/${String(now.getFullYear()).slice(-2)}`;
-    
+
     const horaVenezuelaStr = now.toLocaleTimeString("es-VE", { timeZone: "America/Caracas", hour: '2-digit', minute: '2-digit' });
     const horaCaliforniaStr = now.toLocaleTimeString("en-US", { timeZone: "America/Los_Angeles", hour: '2-digit', minute: '2-digit' });
-    
+
     reporteTexto += `\nAsistentes de Monitoreo:\n`;
     reporteTexto += `${asistente1}\n`;
     if (asistente2) {
