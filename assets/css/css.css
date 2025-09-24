@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 auto;
     color: whitesmoke;
-    background-color: rgb(13, 152, 36);
+    background-color: #172a3a;
 }
 
 img {
@@ -15,7 +15,7 @@ nav {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: rgb(26, 24, 24);
+    background-color: #0b1a26;
 }
 
 .logo {
@@ -28,29 +28,31 @@ nav {
     gap: 10px;
 }
 
-/* Contenedor de los botones */
 .nav-buttons {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-left: auto; /* Esto empuja los botones a la derecha */
+    margin-left: auto;
 }
 
-/* Estilo unificado para todos los botones */
 .nav-btn {
-    background-color: rgb(3, 127, 235);
+    background-color: #2e8b57;
     color: whitesmoke;
     border-radius: 10px;
-    padding: 8px 16px; /* Ajuste para que sea un poco más pequeño */
-    font-size: 0.9em; /* Fuente más pequeña */
+    padding: 8px 16px;
+    font-size: 0.9em;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 500;
 }
 
-/* Efecto hover común para todos los botones */
 .nav-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+main {
+    padding: 20px;
 }
 
 .content {
@@ -61,44 +63,56 @@ nav {
     float: left;
     width: 50%;
     height: auto;
-    background-color: rgb(7, 26, 167);
+    background-color: #1a3556;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .right {
     float: right;
     width: 50%;
     height: auto;
-    background-color: rgb(13, 152, 36);
+    background-color: #172a3a;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .title {
     text-align: center;
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     padding: 20px;
-    width: 80%;
+    width: 90%;
+    max-width: 500px;
     margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 form label {
-    font-weight: bold;
-    color: whitesmoke;
+    font-weight: 600;
+    color: #e0e0e0;
 }
 
 form input[type="text"],
 form textarea,
 form select {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: whitesmoke;
-    color: black;
+    border: 1px solid #4a6a8a;
+    border-radius: 6px;
+    background-color: #f0f4f8;
+    color: #1f2a36;
+    font-size: 1em;
 }
 
 form textarea {
@@ -107,52 +121,58 @@ form textarea {
 
 .button {
     align-self: center;
-    padding: 10px 20px;
-    background-color: rgb(3, 127, 235);
+    padding: 12px 24px;
+    background-color: #3498db;
     color: whitesmoke;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s, box-shadow 0.2s;
-    background-color: rgb(13, 152, 36);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    background-color: #2980b9;
 }
 
 footer {
     clear: both;
-    background-color: rgb(26, 24, 24);
-    padding: 10px;
+    background-color: #0b1a26;
+    padding: 15px;
     text-align: center;
-    color: lightgrey;
+    color: #a0a0a0;
+    font-size: 0.9em;
 }
 
 .card {
-    background-color: whitesmoke;
-    width: 80%;
+    background-color: #2b4566;
+    width: 90%;
+    max-width: 600px;
     margin: 20px auto;
     border-radius: 15px;
-    box-shadow: 0 4-12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    padding: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .card-content {
-    min-height: 200px;
+    min-height: 250px;
     width: 100%;
-    border: 1px solid #eee;
-    padding: 15px;
-    border-radius: 8px;
+    border: 1px solid #4a6a8a;
+    background-color: #f0f4f8;
+    padding: 20px;
+    border-radius: 10px;
     resize: vertical;
     overflow: auto;
     cursor: text;
-    color: black;
+    color: #1f2a36;
     box-sizing: border-box;
+    font-family: monospace;
+    line-height: 1.5;
 }
 
 .card-content:empty:before {
@@ -162,20 +182,21 @@ footer {
 }
 
 .save-card-button {
-    margin-top: 15px;
-    padding: 10px 20px;
+    margin-top: 20px;
+    padding: 12px 24px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(13, 152, 36);
+    background-color: #e67e22;
     color: whitesmoke;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .save-card-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background-color: rgb(3, 127, 235);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    background-color: #d35400;
 }
 
 .card-content {
@@ -188,57 +209,236 @@ footer {
 }
 
 #reusePizarraButton svg {
-    /* Le da un tamaño visible. */
     width: 16px;
     height: 13px;
-    /* Asegura que el trazo del icono sea visible sobre el fondo del botón. */
     stroke: whitesmoke;
 }
 
 table {
-    color: black;
-    width: 50%;
-    border-collapse: collapse;
+    width: 95%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
     margin: 20px auto;
     text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.title-table {
-    text-align: center;
-}
-
-th,
-td {
-    border: 1px solid #000;
-    padding: 10px;
+th, td {
+    padding: 15px;
+    border: none;
 }
 
 th {
-    background-color: whitesmoke;
+    background-color: #2e8b57;
+    color: whitesmoke;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 td {
-    background-color: whitesmoke;
+    background-color: #f0f4f8;
+    color: #1a3556;
+    font-weight: 500;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+tr:nth-child(odd) td {
+    background-color: #e0e7ee;
 }
 
-label {
+tr:hover td {
+    background-color: #cdd8e6;
+    transition: background-color 0.3s ease;
+}
+
+td > input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.clickable-cell {
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-input[type="checkbox"] {
-    margin-left: 10px;
+.clickable-cell:hover {
+    background-color: #cdd8e6;
+}
+
+.ojo {
+    text-align: center;
+}
+
+.btnbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#generar-reporte {
+    margin: 20px 0;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    background-color: #3498db;
+    color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+#generar-reporte:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 .reporte-card {
-    background-color: #2e3e50;
-    width: 80%;
+    background-color: #2b4566;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
     border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reporte-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.reporte-card h2 {
+    color: #e67e22;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.reporte-card p {
+    color: #e0e0e0;
+    margin: 5px 0;
+}
+
+.reporte-card pre {
+    background-color: #1a3556;
+    color: whitesmoke;
+    padding: 15px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace;
+    line-height: 1.4;
+    border: 1px solid #4a6a8a;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.reporte-card button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    background-color: #3498db;
+    color: whitesmoke;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.reporte-card button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.reporte-card hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    width: 80%;
+    margin: 15px 0;
+}
+
+#reportes-container {
     text-align: center;
-    margin: 16px auto;
-    padding: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 1.15);
+}
+
+#reportes-container p {
+    font-size: 1.2em;
+    color: #a0a0a0;
+}
+
+/* Estilos para Pizarras Anteriores */
+.pizarra-card {
+    background-color: #2b4566;
+    width: 90%;
+    max-width: 700px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pizarra-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.pizarra-card h2 {
+    text-align: center;
+    border-bottom: 2px solid #4a6a8a;
+    padding-bottom: 10px;
+    color: #e67e22;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.pizarra-card p {
+    margin: 10px 0;
+    color: #e0e0e0;
+}
+
+.pizarra-card strong {
+    color: #3498db;
+}
+
+.pizarra-card pre {
+    background-color: #1a3556;
+    color: whitesmoke;
+    padding: 15px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace;
+    line-height: 1.4;
+    border: 1px solid #4a6a8a;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.pizarra-card button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    background-color: #e67e22;
+    color: whitesmoke;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.pizarra-card button:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
