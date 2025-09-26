@@ -38,13 +38,13 @@ function savePizarra(event) {
     const grupo = form.querySelector('#grupo').value;
     const irwindale = form.querySelector('#Irwindale').value;
     const perris = form.querySelector('#Perris').value;
-    const boyle = form.querySelector('#Boyle').value;
+    const bonnie = form.querySelector('#Bonnie').value;
     const vernon = form.querySelector('#Vernon').value;
     const tulare = form.querySelector('#Tulare').value;
     const gualan = form.querySelector('#Gualan').value;
     const venezuela = form.querySelector('#Venezuela').value;
 
-    if (grupo.trim() === '' || irwindale.trim() === '' || perris.trim() === '' || boyle.trim() === '' || vernon.trim() === '' || tulare.trim() === '' || gualan.trim() === '' || venezuela.trim() === '') {
+    if (grupo.trim() === '' || irwindale.trim() === '' || perris.trim() === '' || bonnie.trim() === '' || vernon.trim() === '' || tulare.trim() === '' || gualan.trim() === '' || venezuela.trim() === '') {
         alert("Por favor, llena todos los campos antes de guardar la pizarra.");
         return;
     }
@@ -53,7 +53,7 @@ function savePizarra(event) {
         grupo: grupo,
         irwindale: irwindale,
         perris: perris,
-        boyle: boyle,
+        bonnie: bonnie,
         vernon: vernon,
         tulare: tulare,
         gualan: gualan,
@@ -100,7 +100,7 @@ async function loadLastPizarra() {
                 <hr>
                 <p><strong>Irwindale:</strong> ${lastPizarra.irwindale}</p>
                 <p><strong>Perris:</strong> ${lastPizarra.perris}</p>
-                <p><strong>Boyle:</strong> ${lastPizarra.boyle}</p>
+                <p><strong>Bonnie:</strong> ${lastPizarra.bonnie}</p>
                 <p><strong>Vernon:</strong> ${lastPizarra.vernon}</p>
                 <p><strong>Tulare:</strong> ${lastPizarra.tulare}</p>
                 <p><strong>Gualan:</strong> ${lastPizarra.gualan}</p>
@@ -128,7 +128,7 @@ async function reuseLastPizarra() {
             form.querySelector('#grupo').value = lastPizarra.grupo;
             form.querySelector('#Irwindale').value = lastPizarra.irwindale;
             form.querySelector('#Perris').value = lastPizarra.perris;
-            form.querySelector('#Boyle').value = lastPizarra.boyle;
+            form.querySelector('#Bonnie').value = lastPizarra.bonnie;
             form.querySelector('#Vernon').value = lastPizarra.vernon;
             form.querySelector('#Tulare').value = lastPizarra.tulare;
             form.querySelector('#Gualan').value = lastPizarra.gualan;
@@ -171,7 +171,7 @@ document.getElementById('copyPizarraButton').addEventListener('click', async () 
 
 *Perris*: ${lastPizarra.perris}
 
-*Boyle*: ${lastPizarra.boyle}
+*Bonnie*: ${lastPizarra.bonnie}
 
 *Vernon*: ${lastPizarra.vernon}
 
